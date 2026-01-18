@@ -381,7 +381,7 @@ class User extends DatabaseObject {
 	
 	public static function getUser($databaseConnection, $name, $forUpdate = false) {
 		$userRow = $databaseConnection->fetchRow($databaseConnection->selectAndLock("* FROM users WHERE name = " . DatabaseObject::getStringInDatabaseFormat($databaseConnection, $name)));
-		if ($userRow === FALSE) {
+		if (empty($userRow)) {  // <-- CHANGE to empty()
 			return FALSE;
 		} else {
 			return new User($databaseConnection, $userRow['id'], $forUpdate, $userRow);

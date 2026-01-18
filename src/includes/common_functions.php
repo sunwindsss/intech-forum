@@ -48,7 +48,7 @@ function urls_to_links( $string ){
 }
  
 function emails_to_links( $string ){
-  return preg_replace('@([\w\d-\._]{3,}\@[\w\d-\._]{3,}\.[\w\d-\._]{2,})@', '<a href="mailto:$1">$1</a>', $string);
+  return preg_replace('@([\w\d._-]{3,}\@[\w\d._-]{3,}\.[\w\d._-]{2,})@', '<a href="mailto:$1">$1</a>', $string);
 }
  
 function html_post( $string ){
